@@ -52,6 +52,7 @@ button:active{
     background-color: yellow;
 }
 #split-or-spin{
+    margin-top: 2vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,9 +65,17 @@ button:active{
     border-radius: 50%;
     color: rgb(1, 86, 86);
 }
+p, input{
+    font-size: 3vw;
+}
 #or{
     color: rgb(0, 69, 69);
     font-weight: bold;
+}
+#instruction{
+    padding: 1vw;
+    margin-bottom: 2vw;
+    text-align: center;
 }
 /* #split-bill{
 
@@ -75,11 +84,12 @@ button:active{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     overflow: hidden;
     position: relative;
     width: 40vw;
     aspect-ratio: 1;
-    border: 1vw solid green;
+    border: 1vw solid teal;
     border-radius: 50%;
     /* background: conic-gradient(
         yellow 0deg 60deg,

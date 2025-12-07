@@ -56,6 +56,7 @@ spin.addEventListener('click', ()=>{
         rotation+=random
         spinWheel.style.transform = `rotate(${random}deg)`
     })
+    spinWheel.innerHTML = "<button>ROTATE</button>"
 })
 
 function clearMainPage(){
