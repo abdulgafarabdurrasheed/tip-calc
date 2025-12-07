@@ -51,3 +51,44 @@ button:hover{
 button:active{
     background-color: yellow;
 }
+#split-or-spin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#split{
+    width: 13vw;
+    aspect-ratio: 1;
+    font-weight: bold;
+    font-size: 3vw;
+    border-radius: 50%;
+    color: rgb(1, 86, 86);
+}
+#spin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    width: 40vw;
+    aspect-ratio: 1;
+    border: 1vw solid green;
+    border-radius: 50%;
+    background: conic-gradient(
+        yellow 0deg 60deg,
+        blue 60deg 120deg,
+        pink 120deg 180deg,
+        brown 180deg 240deg,
+        grey 240deg 300deg,
+        white 300deg 360deg
+    );
+    transition: transform 4s ease-out;
+
+}
+#spinner{
+    position: absolute;
+    background-color: red;
+    width: 2vw;
+    aspect-ratio: 1;
+    top: 50%;
+}
