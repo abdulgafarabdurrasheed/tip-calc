@@ -2,7 +2,10 @@ const title = document.getElementById("title");
 const inputSection = document.getElementById('inputs');
 const paymentSection = document.getElementById("split-or-spin");
 const splitBill = document.getElementById("split-bill");
+const spinWheel = document.getElementById("spin")
 splitBill.style.display = "none";
+// spinWheel.style.display = "none"
+
 
 let billAmount;
 const bill = document.getElementById("billAmount");
@@ -27,38 +30,36 @@ friends.addEventListener('input', ()=>{
     console.log("friends number: " + friendsNumber);
 })
 
-const split = document.getElementById("split-btn")
+const split = document.getElementById("split-btn");
 split.addEventListener('click', ()=>{
+    spinWheel.innerText = `Each friend is to pay N${Math.round(tip/friendsNumber)}`;
+    
+})
+
+const spin = document.getElementById("spin-btn");
+spin.addEventListener('click', ()=>{
+    // clearMainPage();
+    if (!friendsNumber || friendsNumber<2)return;
+    const parts = [];
+    for (let i =0; i<friendsNumber; i++){
+        let color = `hsl(${(i*360)/friendsNumber}, 90%,60%)`;
+        console.log(color)
+        parts.push(`${color} ${((i*360)/friendsNumber)}deg ${((i+1)*360/friendsNumber)}deg`)
+    };
+    const gradient = `conic-gradient(${parts.join(",")})`;
+    console.log(gradient)
+    spinWheel.style.display = "flex"
+    spinWheel.style.background = gradient;
+    let rotation=0;
+    spinWheel.addEventListener('click', ()=>{
+        const random = Math.floor(2000+Math.random() * 3000);
+        rotation+=random
+        spinWheel.style.transform = `rotate(${random}deg)`
+    })
+})
+
+function clearMainPage(){
     title.style.display = "none";
     inputSection.style.display = "none";
     paymentSection.style.display = "none";
-    splitBill.style.display = "flex"
-    document.getElementById("tip-amount").innerText = `Each friend is is to pay N${Math.round(tip/friendsNumber)}`;
-    
-})
-// let colorList = ["yellow 0deg 60deg",
-//     "blue 60deg 120deg",
-//     "pink 120deg 180deg",
-//     "brown 180deg 240deg",
-//     "grey 240deg 300deg",
-//     "white 300deg 360deg"]
-
-
-// let rotation = 150
-// console.log(window.scrollY)
-// const spinWheel = document.getElementById("spin");
-// const deg = 360/friendsNumber
-
-
-// spinWheel.style.background = `conic-gradient(yellow 0deg 60deg,
-//         blue 60deg 120deg,
-//         pink 120deg 180deg,
-//         brown 180deg 240deg,
-//         grey 240deg 300deg,
-//         white 300deg 360deg)`
-
-spinWheel.addEventListener('click', ()=>{
-    const random = Math.floor(2000+Math.random() * 3000);
-    rotation+=random
-    spinWheel.style.transform = `rotate(${rotation}deg)`
-})
+}

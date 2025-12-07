@@ -68,10 +68,10 @@ button:active{
     color: rgb(0, 69, 69);
     font-weight: bold;
 }
-#split-bill{
-    
-}
-/* #spin{
+/* #split-bill{
+
+} */
+#spin{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,17 +81,17 @@ button:active{
     aspect-ratio: 1;
     border: 1vw solid green;
     border-radius: 50%;
-    background: conic-gradient(
+    /* background: conic-gradient(
         yellow 0deg 60deg,
         blue 60deg 120deg,
         pink 120deg 180deg,
         brown 180deg 240deg,
         grey 240deg 300deg,
         white 300deg 360deg
-    );
+    ); */
     transition: transform 4s ease-out;
 
-} */
+}
 /* #spinner{
     position: fixed;
     background-color: red;
