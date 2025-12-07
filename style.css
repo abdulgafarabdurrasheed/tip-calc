@@ -56,7 +56,7 @@ button:active{
     justify-content: center;
     align-items: center;
 }
-#split{
+#split-btn, #spin-btn{
     width: 13vw;
     aspect-ratio: 1;
     font-weight: bold;
@@ -64,7 +64,14 @@ button:active{
     border-radius: 50%;
     color: rgb(1, 86, 86);
 }
-#spin{
+#or{
+    color: rgb(0, 69, 69);
+    font-weight: bold;
+}
+#split-bill{
+    
+}
+/* #spin{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,11 +91,12 @@ button:active{
     );
     transition: transform 4s ease-out;
 
-}
-#spinner{
-    position: absolute;
+} */
+/* #spinner{
+    position: fixed;
     background-color: red;
-    width: 2vw;
-    aspect-ratio: 1;
-    top: 50%;
-}
+    width: 6vw;
+    height: 10vw;
+    top: 30%;
+    clip-path: polygon(21% 0, 50% 100%, 87% 0%);
+} */
