@@ -20,7 +20,30 @@ body{
     background-color: beige;
     border-radius: 2vw;
     box-shadow: 0 0 15px grey;
-    /* @media (max-width:600px){
-        
-    } */
+}
+/* @media (min-width:700px) {
+    #body{
+
+    }
+} */
+h1{
+    color: rgb(87, 86, 86);
+}
+#inputs{
+    display: flex;
+    flex-direction: column;
+}
+label, input, button, #tip-text{
+    font-size: 3vw;
+}
+button{
+    aspect-ratio: 4/2;
+    border: 1px solid bisque;
+    border-radius: 2vw;
+    width: 12vw;
+    cursor: pointer;
+}
+button:hover{
+    background-color: teal;
+    transition-duration: 0.3s;
 }
