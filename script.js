@@ -38,6 +38,11 @@ friends.addEventListener('input', ()=>{
 
 split.addEventListener('click', ()=>{
     // console.log("split clicked")
+    spinWheel.style.background = "none";
+    spinWheel.addEventListener('click', ()=>{
+        return
+    })
+
     if (!billAmount && !friendsNumber) spinWheel.innerText = "Please, enter your bill amount and number of friend";
     else if (!friendsNumber) spinWheel.innerText = "Please, enter the number of friends";
     else if (!billAmount) spinWheel.innerText = "Please, enter your bill amount";
@@ -49,7 +54,7 @@ split.addEventListener('click', ()=>{
         document.getElementById("tip-amount").innerText = `Tip: N${tip}`;
         document.getElementById("total-amount").innerText = `Total: N${billAmount+tip}`
     }
-
+    
     
 })
 
@@ -60,7 +65,7 @@ spin.addEventListener('click', ()=>{
         return;
     }
     else if (!friendsNumber||friendsNumber<2){
-        spinWheel.innerText = `"spin" not available; `;
+        spinWheel.innerText = `"spin" not available for less than 2 friends; `;
         return;
     }
     else if (!billAmount){
@@ -86,16 +91,11 @@ spin.addEventListener('click', ()=>{
         const random = Math.floor(2000+Math.random() * 3000);
         rotation+=random;
         spinWheel.style.transform = `rotate(${rotation}deg)`;
-        document.getElementById("arrow").style.display = "block"
+        document.getElementById("arrow").style.display = "block";
+        spinWheel.innerText = ""
     })
     spinWheel.innerText = "Choose your colors and tap to rotate";
     result.style.display = "block";
         document.getElementById("tip-amount").innerText = `Tip: N${tip}`;
         document.getElementById("total-amount").innerText = `Total: N${billAmount+tip}`
 })
-
-function clearMainPage(){
-    title.style.display = "none";
-    inputSection.style.display = "none";
-    paymentSection.style.display = "none";
-}
