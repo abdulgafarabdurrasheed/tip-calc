@@ -22,6 +22,12 @@ let tip = 0;
 const percentButtons = document.querySelectorAll(".percent");
 percentButtons.forEach(button => button.addEventListener('click', ()=>{
     // console.log(billAmount);
+    if (!billAmount){
+        spinWheel.style.color = "brown";
+        spinWheel.style.fontWeight = "bold";
+        spinWheel.innerText = "Please, first enter the bill amount, then re-click the percent button."
+        return;
+    }
     if (button.textContent == "10%")tip = 0.1*billAmount;
     else if (button.textContent == "15%") tip = 0.15 * billAmount;
     else if (button.textContent == "20%") tip = 0.2*billAmount;
