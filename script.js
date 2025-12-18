@@ -80,7 +80,7 @@ spin.addEventListener('click', ()=>{
     }
 
     spinWheel.innerText = "";
-    console.log("spin button clicked")
+    // console.log("spin button clicked")
     
     const parts = [];
     for (let i =0; i<friendsNumber; i++){
@@ -100,8 +100,8 @@ spin.addEventListener('click', ()=>{
         document.getElementById("arrow").style.display = "block";
         spinWheel.innerText = ""
     })
-    spinWheel.innerText = "Choose your colors and tap to rotate";
+    spinWheel.innerText = "Choose your colors and tap to rotate. The arrow to appear points the friend to pay";
     result.style.display = "block";
         document.getElementById("tip-amount").innerText = `Tip: N${tip}`;
-        document.getElementById("total-amount").innerText = `Total: N${billAmount+tip}`
+        document.getElementById("total-amount").innerText = `Total: N${String(billAmount+tip)}`
 })
