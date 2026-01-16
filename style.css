@@ -1,166 +1,344 @@
-*{
-    padding: 0;
-    margin: 0;
-    border: 0;
-}
-body{
-    display:flex;
-    justify-content: flex-start;
+body {
+    display: flex;
+    justify-content: center;
     align-items: flex-start;
-    margin: 2vw;
+    margin: 0;
+    padding: 20px;
     background-color: beige;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
 }
-#body{
+
+#body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 100vw;
-    min-width: fit-content;
-    aspect-ratio: 3/5;
+    width: 100%;
+    max-width: 500px;
     background-color: beige;
-    border-radius: 2vw;
+    border-radius: 16px;
     box-shadow: 0 0 15px grey;
-    padding-bottom: 2vw;
+    padding: 32px 24px;
+    gap: 24px;
 }
+
 @media (min-width: 720px) {
-    #body{
-        width: 100vw;
-        justify-content: flex-start;
+    #body {
+        max-width: 550px;
+        padding: 40px 32px;
     }
 }
-#title{
-    margin: 3vw;
- }
-h1{
+
+#title {
+    text-align: center;
+    width: 100%;
+}
+
+h1 {
     color: rgb(87, 86, 86);
+    font-size: clamp(28px, 5vw, 36px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
-#bill{
+
+#bill {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
-#inputs{
+
+#inputs {
     display: flex;
     flex-direction: column;
+    gap: 16px;
+    width: 100%;
 }
-label, input, button, #tip-text{
-    font-size: clamp(20px,20px,40px);
-    margin: 1px;
+
+label, #tip-text {
+    font-size: clamp(14px, 3vw, 16px);
+    font-weight: 600;
+    color: rgb(87, 86, 86);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
-button{
-    aspect-ratio: 2/1;
-    border: 1px solid bisque;
+
+input {
+    font-size: clamp(16px, 4vw, 18px);
+    padding: 12px 16px;
+    border: 2px solid bisque;
+    border-radius: 8px;
+    background-color: white;
+    color: rgb(1, 79, 79);
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input:focus {
+    outline: none;
+    border-color: teal;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgb(245, 215, 178);
+}
+
+input::placeholder {
+    color: #666;
+}
+
+button {
     background-color: rgb(245, 215, 178);
     color: rgb(1, 79, 79);
-    border-radius: 15px;
-    width: 70px;
+    border: 1px solid bisque;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: clamp(14px, 3vw, 16px);
+    font-weight: 600;
+    padding: 10px 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
-button:hover{
+
+button:hover {
     background-color: teal;
     color: bisque;
-    transition-duration: 0.3s;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
 }
-button:active{
+
+button:active {
     background-color: brown;
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-#percent-buttons{
+
+#percent-buttons {
     display: flex;
+    gap: 8px;
+    justify-content: space-between;
 }
-#split-or-spin{
-    margin-top: 2vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+#percent-buttons .percent {
+    flex: 1;
+    background-color: rgb(245, 215, 178);
+    color: rgb(1, 79, 79);
+    border: 1px solid bisque;
+    padding: 12px 8px;
 }
-#split-btn, #spin-btn{
-    padding: 8px;
-    width: fit-content;
-    max-width: 120px;
-    aspect-ratio: 1;
-    font-weight: bold;
-    font-size: clamp(2vw,25px,40px);
-    border-radius: 50%;
-    color: rgb(1, 86, 86);
+
+#percent-buttons .percent:hover {
+    background-color: teal;
+    color: bisque;
+    transform: translateY(-2px);
 }
-#spin-btn:hover, #split-btn:hover{
+
+#percent-buttons .percent:active {
+    background-color: brown;
     color: bisque;
 }
-#or{
-    color: rgb(0, 69, 69);
-    font-weight: bold;
-}
-p, input{
-    font-size: clamp(15px, 20px, 40px);
+
+#percent-buttons .percent.active {
+    background-color: teal;
+    color: bisque;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
-#instruction{
-    padding: 1vw;
-    margin-bottom: 2vw;
-    text-align: center;
-}
-/* #split-bill{
-
-} */
-#spin{
+#split-or-spin {
+    margin-top: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
+#split-btn, #spin-btn {
+    width: 80px;
+    height: 80px;
+    padding: 0;
+    aspect-ratio: 1;
+    font-weight: 700;
+    font-size: clamp(16px, 4vw, 20px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(245, 215, 178);
+    color: rgb(1, 79, 79);
+    border: 1px solid bisque;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#spin-btn:hover, #split-btn:hover {
+    background-color: teal;
+    color: bisque;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
+#or {
+    color: rgb(0, 69, 69);
+    font-weight: 700;
+    font-size: clamp(14px, 3vw, 16px);
+    text-transform: uppercase;
+}
+
+p {
+    font-size: clamp(16px, 4vw, 18px);
+    color: rgb(87, 86, 86);
+    line-height: 1.5;
+}
+
+#instruction {
+    padding: 12px 16px;
     text-align: center;
-    overflow: hidden;
+    color: #666;
+    font-size: 14px;
+}
+
+#spin {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: visible;
     position: relative;
-    width: clamp(220px, 40vw,350px);
+    width: clamp(200px, 50vw, 300px);
     aspect-ratio: 1;
     border: 5px solid hsl(180, 100%, 25%);
     border-radius: 50%;
-    /* background: conic-gradient(
-        yellow 0deg 60deg,
-        blue 60deg 120deg,
-        pink 120deg 180deg,
-        brown 180deg 240deg,
-        grey 240deg 300deg,
-        white 300deg 360deg
-    ); */
-    transition: transform 4s ease-out;
-
+    background-color: beige;
+    transition: transform 4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: rgb(87, 86, 86);
+    font-weight: 500;
+    font-size: clamp(14px, 3vw, 16px);
 }
-/* #spinner{
-    position: fixed;
-    background-color: red;
-    width: 6vw;
-    height: 10vw;
-    top: 30%;
-    clip-path: polygon(21% 0, 50% 100%, 87% 0%);
-} */
 
-#spinwheel-arrow-flex{
+#spin.active {
+    display: flex;
+}
+
+#spin.hide-after-spin {
+    animation: spinThenHide 6s ease-out forwards;
+}
+
+@keyframes spinThenHide {
+    0% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+    80% {
+        opacity: 1;
+        transform: rotate(1440deg);
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(1440deg);
+        display: none;
+    }
+}
+
+#spinwheel-arrow-flex {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    width: clamp(200px, 50vw, 300px);
+    aspect-ratio: 1;
 }
-#arrow{
-    font-size: clamp(20px, 10vw, 35px);
-    transform: scaleY(0.5);
+
+#arrow {
+    font-size: clamp(24px, 8vw, 40px);
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: none;
 }
- #input-spin-flex{
+
+#arrow.active {
+    display: block;
+}
+
+
+
+#input-spin-flex {
     display: flex;
     flex-direction: column;
- }
- @media (min-width: 720px) {
-    #input-spin-flex{
+    gap: 24px;
+    width: 100%;
+}
+
+@media (min-width: 720px) {
+    #input-spin-flex {
         flex-direction: row;
-        margin: 5wv;
-        width: 70vw;
-        justify-content: space-evenly;
-        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        align-items: flex-start;
     }
- }
- #last-section{
-    margin-top: 4vw;
+
+    #inputs {
+        flex: 1;
+    }
+
+    #spinwheel-arrow-flex {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+#last-section {
+    margin-top: 16px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    font-size: clamp(20px, 10vw, 35px);
+    gap: 12px;
+    width: 100%;
+    padding: 20px;
+    background: rgb(245, 215, 178);
+    border-radius: 12px;
+    border-left: 4px solid teal;
+}
+
+#last-section p {
+    font-size: clamp(18px, 4vw, 22px);
+    font-weight: 600;
     color: teal;
- }
+    margin: 0;
+}
+
+#payment-status {
+    display: none;
+    margin-top: 16px;
+    padding: 20px;
+    width: 100%;
+    background-color: brown;
+    border-radius: 12px;
+    border: 2px solid brown;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#payment-status.active {
+    display: block;
+}
+
+#payment-message {
+    font-size: clamp(18px, 4vw, 24px);
+    font-weight: 700;
+    color: bisque;
+    margin: 0;
+    line-height: 1.6;
+}
